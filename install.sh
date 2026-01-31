@@ -296,9 +296,6 @@ read -p "Masukkan nama node: " node_name
 read -p "Masukkan RAM (dalam MB): " ram
 read -p "Masukkan jumlah maksimum disk space (dalam MB): " disk_space
 read -p "Masukkan Locid: " locid
-read -p "Masukan IP addres untuk allocation: " ip_address
-read -p "Masukan Port (contoh: 5000):" port
-read -p "Masuan IP alias (boleh kosong):" ip_alias
 
 # Ubah ke direktori pterodactyl
 cd /var/www/pterodactyl || { echo "Direktori tidak ditemukan"; exit 1; }
@@ -327,12 +324,6 @@ $disk_space
 8080
 2022
 /var/lib/pterodactyl/volumes
-EOF
-
-php artisan p:allocation:generate <<EOF
-$node_name
-$ip_address
-$port
 EOF
 
   echo -e "                                                       "
